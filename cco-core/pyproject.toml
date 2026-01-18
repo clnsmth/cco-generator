@@ -1,0 +1,38 @@
+[project]
+name = "cco-core"
+version = "0.1.0"
+description = "Core logic for generating OAI-ORE compliant Complex Citation Objects"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0.0",   # For strict data validation
+    "rdflib>=7.0.0",     # For JSON-LD/RDF generation
+    "bibtexparser>=1.4.0" # For the BibTexIngestor
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.0",
+    "ruff>=0.14.0"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# --- Tool Configuration ---
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"] # Enable Pyflakes (F), pycodestyle (E), and isort (I)
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+pythonpath = ["src"]
