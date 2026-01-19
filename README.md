@@ -1,6 +1,6 @@
 # Complex Citation Object (CCO) Generator
 
-> **Current Status:** Architecture & Design Phase
+![WIP](https://img.shields.io)
 
 ## Overview
 
