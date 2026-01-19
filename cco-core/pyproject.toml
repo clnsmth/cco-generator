@@ -3,7 +3,7 @@ name = "cco-core"
 version = "0.1.0"
 description = "Core logic for generating OAI-ORE compliant Complex Citation Objects"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
     "pydantic>=2.0.0",   # For strict data validation
     "rdflib>=7.0.0",     # For JSON-LD/RDF generation
