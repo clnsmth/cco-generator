@@ -10,15 +10,15 @@ dependencies = [
     "bibtexparser>=1.4.0" # For the BibTexIngestor
 ]
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=9.0.0",
-    "ruff>=0.14.0"
-]
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.14.13"
+]
 
 # --- Tool Configuration ---
 

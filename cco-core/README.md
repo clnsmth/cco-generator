@@ -2,6 +2,8 @@
 
 ## Getting Started
 
+Install `uv`: https://docs.astral.sh/uv/getting-started/installation/
+
 Run these commands in your terminal to set up the environment using uv.
 
 ```bash
@@ -26,8 +28,8 @@ Run tests and formatting before committing:
 
 ```bash
 # Run tests
-pytest
+uv run pytest
 
 # Run linter
-ruff check --fix
+uv run ruff check --fix
 ```
