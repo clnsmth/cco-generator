@@ -33,12 +33,21 @@ The architecture is composed of three primary layers:
 3.  **`cco-frontend` (User Interface):**
     A React-based Single Page Application (SPA) providing a human-friendly interface for creating, editing, and publishing CCOs.
 
-## Roadmap
+## Quickstart
 
-We are currently in the **Architectural Definition** phase. The immediate goals are:
+**Step 1: Start the Environment**
 
-1.  Finalize the OAI-ORE Data Model (Pydantic implementation).
-2.  Define the Ingestion Strategy interfaces.
-3.  Design the Repository Adapter interface for Zenodo integration.
+```bash
+docker-compose up --build
+```
 
-*See `docs/ADR-001-Architecture.md` for the detailed technical strategy.*
+**Step 2: Verify Access**
+
+* **Frontend:** Open http://localhost:3000.  
+* **Backend Docs:** Open http://localhost:8000/docs (Automatic Swagger UI).  
+* **Redis:** Connect via localhost:6379 using a tool like TablePlus or RedisInsight.
+
+**Step 3: Develop\!**
+
+* **Edit Python:** Change a line in cco-core/src/... \-\> The Backend logs will print "Reloading..."  
+* **Edit React:** Change a component in cco-frontend/src/... \-\> The Browser will auto-refresh.
