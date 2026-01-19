@@ -1,0 +1,64 @@
+version: '5.0'
+
+services:
+  # ---------------------------------------------------------------------------
+  # 1. DATABASE (Redis)
+  # ---------------------------------------------------------------------------
+  redis:
+    image: redis:alpine
+    container_name: cco-redis
+    ports:
+      - "6379:6379" # Exposed to host for local inspection (e.g., RedisInsight)
+    networks:
+      - cco-network
+
+  # ---------------------------------------------------------------------------
+  # 2. BACKEND API (FastAPI + Core Library)
+  # ---------------------------------------------------------------------------
+  backend:
+    build:
+      context: .             # CRITICAL: Build context is ROOT to see ../cco-core
+      dockerfile: ./cco-service/Dockerfile
+    container_name: cco-backend
+    command: uvicorn cco_service.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      # HOT RELOAD MAGIC:
+      # Map host source code to container so changes update immediately
+      - ./cco-service/src:/app/cco-service/src
+      - ./cco-core/src:/app/cco-core/src  # Live editing of the Core Library!
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      # Add other API keys here (e.g., ZENODO_TOKEN)
+    depends_on:
+      - redis
+    networks:
+      - cco-network
+
+  # ---------------------------------------------------------------------------
+  # 3. FRONTEND (React + Vite)
+  # ---------------------------------------------------------------------------
+  frontend:
+    build:
+      context: ./cco-frontend # Frontend is self-contained
+      dockerfile: Dockerfile
+    container_name: cco-frontend
+    volumes:
+      - ./cco-frontend/src:/app/src # Hot reload for React components
+      - /app/node_modules           # Prevent host node_modules from breaking container
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true    # Fixes hot-reload issues on some OSs
+    depends_on:
+      - backend
+    networks:
+      - cco-network
+
+# ---------------------------------------------------------------------------
+# NETWORKING
+# ---------------------------------------------------------------------------
+networks:
+  cco-network:
+    driver: bridge

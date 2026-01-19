@@ -8,8 +8,7 @@ WORKDIR /app
 COPY cco-core /app/cco-core
 
 # 2. Copy the SERVICE definition
-COPY cco-service/pyproject.toml /app/cco-service/
-COPY cco-service/src /app/cco-service/src
+COPY cco-service /app/cco-service
 
 # 3. Install dependencies
 # We install the service, which automatically pulls in the core from the path
