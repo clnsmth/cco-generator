@@ -49,5 +49,4 @@ docker-compose up --build
 
 **Step 3: Develop\!**
 
-* **Edit Python:** Change a line in cco-core/src/... \-\> The Backend logs will print "Reloading..."  
-* **Edit React:** Change a component in cco-frontend/src/... \-\> The Browser will auto-refresh.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development workflows, architectural guardrails, and testing instructions.
