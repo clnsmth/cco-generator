@@ -3,16 +3,22 @@ FROM python:3.13-slim
 
 WORKDIR /app
 
-# 1. Copy and install the CORE library first (for better layer caching)
-# We copy the entire folder because it's a local dependency
+# --- STEP 1: Install Core ---
 COPY cco-core /app/cco-core
 
-# 2. Copy the SERVICE definition
+# Enter the core folder and install it
+WORKDIR /app/cco-core
+RUN pip install --no-cache-dir .
+
+# --- STEP 2: Install Service ---
+WORKDIR /app
+
+# Copy the service folder
 COPY cco-service /app/cco-service
 
-# 3. Install dependencies
-# We install the service, which automatically pulls in the core from the path
+# Enter the service folder and install it
 WORKDIR /app/cco-service
+# Now when this runs, it will find cco-core is already installed!
 RUN pip install --no-cache-dir .
 
 # 4. Run the server
