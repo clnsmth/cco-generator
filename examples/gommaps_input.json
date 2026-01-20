@@ -1,0 +1,52 @@
+{
+    "cco_metadata": {
+        "title": "Cetacean, sea turtle, and seabird observations from the Gulf of Mexico Marine Assessment Program for Protected Species Program",
+        "project_name": "Gulf of Mexico Marine Assessment Program for Protected Species Program Project Data",
+        "landing_page": "https://www.boem.gov/GOMMAPPS/",
+        "creator": {
+            "name": "US Dept. of the Interior, Bureau of Ocean Energy Management",
+            "ror_id": "https://ror.org/03tzscr25"
+        },
+        "output_filename_slug": "GOMMAPPSCCO"
+    },
+    "resource_pids": [
+        "https://www.ncei.noaa.gov/archive/accession/GOMMAPPS",
+        "https://www.ncei.noaa.gov/archive/accession/242273",
+        "https://www.ncei.noaa.gov/archive/accession/243654",
+        "https://www.ncei.noaa.gov/archive/accession/244002",
+        "https://www.ncei.noaa.gov/archive/accession/247205",
+        "https://www.ncei.noaa.gov/archive/accession/247206",
+        "https://www.ncei.noaa.gov/archive/accession/241032",
+        "https://www.ncei.noaa.gov/archive/accession/243468",
+        "https://www.ncei.noaa.gov/archive/accession/243469",
+        "https://www.ncei.noaa.gov/archive/accession/256800",
+        "https://www.ncei.noaa.gov/archive/accession/0165352",
+        "https://www.ncei.noaa.gov/archive/accession/0171616",
+        "https://www.ncei.noaa.gov/archive/accession/0176436",
+        "https://seamap.env.duke.edu/?",
+        "10.82144/e98987b1",
+        "10.82144/3fe3d440",
+        "10.82144/dbf0d8a9",
+        "10.82144/dcecd9c7",
+        "10.82144/6a399452",
+        "10.82144/5bc59b0a",
+        "https://seamap.env.duke.edu/models/SEFSC/GOM/",
+        "https://www.fisheries.noaa.gov/inport/item/70316",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/258f1f67-a846-5959-b813-c6133ab827c2/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/ce2aab42-9128-52e4-9d27-84d3c2451491/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/5f68b04c-7f87-5e29-accf-50c30670d416/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/253cc8f5-bcb1-55d6-b877-cc8d32f86841/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/1bde37a0-391c-50ab-afbe-f09287172482/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/46fdf455-b20c-57ac-bcef-a724a4652a8c/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/8695365d-10c2-5a2c-94e9-f5c6cec99985/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/8c72f592-3afc-57e5-ad59-37f135c28605/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/a923f160-6b00-5854-bbcf-2c73a608139e/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/31bb474f-c81a-52fe-9e3d-f25e8a48d3f5/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/3fcf0c71-9562-5063-8589-c40b22379972/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/434d5fc4-7a9a-516e-91ff-f0009aa21de6/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/ef6f1a4e-dd99-5e93-8cab-9c94624870e2/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/e5a7c28d-8e0d-5b07-98b5-2267f01b3db4/platform",
+        "https://portal.atn.ioos.us/#metadata/6af10e97-4668-4dd0-9868-5ca029cb2f7a/project/c6e04988-09cf-5429-95a5-9a6f470ef30f/platform"
+    ]
+}
