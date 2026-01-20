@@ -1,0 +1,124 @@
+name: CI Quality Gate
+
+# Trigger on PRs targeting development or main
+on:
+  pull_request:
+    branches: [ "development", "main" ]
+  push:
+    branches: [ "development" ]
+  workflow_dispatch:
+
+jobs:
+  # ------------------------------------------------------------------
+  # JOB 1: Test the Core Library (Pure Python)
+  # ------------------------------------------------------------------
+  test-core:
+    name: 🧠 Core Logic (Python)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./cco-core
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies
+        run: |
+          uv venv
+          source .venv/bin/activate
+          uv pip install .[dev]
+
+      - name: Lint with Ruff
+        run: |
+          source .venv/bin/activate
+          uv run ruff check .
+
+      - name: Run Pytest
+        run: |
+          source .venv/bin/activate
+          uv run pytest
+
+  # ------------------------------------------------------------------
+  # JOB 2: Test the Service (FastAPI + Redis + Core Link)
+  # ------------------------------------------------------------------
+  test-service:
+    name: 🔌 Service API (FastAPI + Redis)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./cco-service
+    
+    # We need a real Redis for the integration tests
+    services:
+      redis:
+        image: redis:alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies
+        # Note: This automatically detects the sibling ../cco-core path
+        run: |
+          uv venv
+          source .venv/bin/activate
+          uv pip install .[dev]
+
+      - name: Run Sanity & Integration Tests
+        env:
+          REDIS_URL: redis://localhost:6379
+        run: |
+          source .venv/bin/activate
+          # This runs test_sanity.py which verifies the Core link
+          uv run pytest
+
+  # ------------------------------------------------------------------
+  # JOB 3: Test the Frontend (React + Vite)
+  # ------------------------------------------------------------------
+  test-frontend:
+    name: 🎨 Frontend (React)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./cco-frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: ./cco-frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint (ESLint)
+        run: npm run lint
+
+      - name: Run Tests (Vitest)
+        run: npm run test
