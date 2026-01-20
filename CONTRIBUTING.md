@@ -136,6 +136,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/) to automate 
   * `refactor`: A code change that neither fixes a bug nor adds a feature
   * `test`: Adding missing tests or correcting existing tests
   * `build`: Changes to the build process or auxiliary tools (e.g., Docker, uv)
+  * `chore`: Other changes that don't modify src or test files
 
 
 * **Examples:**
